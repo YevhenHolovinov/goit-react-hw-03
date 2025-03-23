@@ -11,12 +11,12 @@ const LS_CONTACTS_KEY = 'initial-contacts';
 
 const initialContacts = () => {
 	const localStorageContacts = localStorage.getItem(LS_CONTACTS_KEY);
-	return localStorageContacts ? JSON.parse(localStorageContacts) : useContact;
+	return localStorageContacts ? JSON.parse(localStorageContacts) : useContacts;
 };
 
 
  export default function App () {
-  const [contacts, setContacts] = useState(useContacts);
+  const [contacts, setContacts] = useState(initialContacts);
   const [filter, setFilter] = useState('');
 
   
