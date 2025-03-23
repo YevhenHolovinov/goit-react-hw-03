@@ -3,25 +3,25 @@ import ContactForm from '../ContactForm/ContactForm';
 import SearchBox from '../SearchBox/SearchBox';
 
 import {useEffect, useState } from 'react';
-import  useContact  from '../../useContact.json';
+import  useContacts  from '../../useContacts.json';
 import css from './App.module.css';
 
-// const LS_CONTACTS_KEY = 'initial-contacts';
+const LS_CONTACTS_KEY = 'initial-contacts';
 
 
-// const initialContacts = () => {
-// 	const localStorageContacts = localStorage.getItem(LS_CONTACTS_KEY);
-// 	return localStorageContacts ? JSON.parse(localStorageContacts) : useContact;
-// };
+const initialContacts = () => {
+	const localStorageContacts = localStorage.getItem(LS_CONTACTS_KEY);
+	return localStorageContacts ? JSON.parse(localStorageContacts) : useContact;
+};
 
 
  export default function App () {
-  const [contacts, setContacts] = useState(useContact);
+  const [contacts, setContacts] = useState(useContacts);
   const [filter, setFilter] = useState('');
 
   
 	useEffect(() => {
-		localStorage.setItem(useContact, JSON.stringify(contacts));
+		localStorage.setItem(LS_CONTACTS_KEY, JSON.stringify(contacts));
 	}, [contacts]);
 
   const handleAddContact = (newContact) => {
